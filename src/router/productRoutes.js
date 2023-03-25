@@ -4,7 +4,6 @@ const { getAllProducts, getProduct } = require("../database/products");
 
 router.get("/", async (req, res) => {
   const products = await getAllProducts();
-  console.log(products);
   res.send({ status: "OK", data: products });
 });
 

@@ -1,14 +1,12 @@
 const { ObjectId } = require("mongodb");
-const db = require("./dbConnect");
+const getDB = require("./dbConnect");
 
 const getAllProducts = async () => {
-  const products = await db.products.find().toArray();
-  return products;
+  return await getDB().products.find().toArray();
 };
 
 const getProduct = async (id) => {
-  const product = await db.products.findOne({ _id: new ObjectId(id) });
-  return product;
+  return await getDB().products.findOne({ _id: new ObjectId(id) });
 };
 
 module.exports = {
